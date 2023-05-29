@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 2023_05_29_110136) do
 
   create_table "real_estates", force: :cascade do |t|
     t.string "name"
-    t.integer "rent"
+    t.string "rent"
     t.text "address"
-    t.date "age"
-    t.integer "note"
+    t.string "age"
+    t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
