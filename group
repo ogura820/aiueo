@@ -1,0 +1,24 @@
+  # 参加者の配列
+  names = %W[浅沼 内堀 内海 小倉 小野 加藤 神田 チャーリー 近藤 新谷 高篠 田村 近野 出島 野﨑 増山 村田]
+  
+  # 休みの人の配列
+  puts "今日は休みの人いる?"
+  resting_input = gets.chomp #休みの人を入力する
+  resting_names = resting_input.split(" ") #休みの人をスペースで区切っている事を条件に配列に追加する
+  
+  # 休みの人を参加者から除外
+  names -= resting_names
+  # ランダムに朝礼を行う人を選ぶ
+  shuffle_names = names.shuffle# シャッフルする
+  group1 = shuffle_names.slice(0, 3)
+  group2 = shuffle_names.slice(3, 4)
+  group3 = shuffle_names.slice(7, 3)
+  group4 = shuffle_names.slice(10, 3)
+  group5 = shuffle_names.slice(13, 4)
+  
+  # 朝礼を行う人を1人だけ選らんで表示
+  puts "ルーム1は#{group1}"
+  puts "ルーム2は#{group2}"
+  puts "ルーム3は#{group3}"
+  puts "ルーム4は#{group4}"
+  puts "ルーム5は#{group5}"

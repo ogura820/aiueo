@@ -1,0 +1,7 @@
+<p>物件名: <%= @real_estate.name %></p>
+<p>賃料: <%= @real_estate.rent %></p>
+<p>住所: <%= @real_estate.address %></p>
+<p>築年数: <%= @real_estate.age %></p>
+<p>備考: <%= @real_estate.note %></p>
+
+<%= link_to '編集', edit_real_estate_path %>|<%= link_to '戻る', real_estates_path %>

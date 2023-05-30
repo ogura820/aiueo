@@ -1,1 +1,26 @@
 <h1>物件一覧</h1>
+
+<table>
+  <tr>
+    <th>物件名</th>
+    <th>賃料</th>
+    <th>住所</th>
+    <th>築年数</th>
+    <th>備考</th>
+  </tr>
+
+<% @real_estates.each do |real_estate| %>
+  <tr>
+    <td><%= real_estate.name %></td>
+    <td><%= real_estate.rent %>円</td>
+    <td><%= real_estate.address %></td>
+    <td><%= real_estate.age %>年</td>
+    <td><%= real_estate.note %></td>
+    <td><%= link_to '詳細', real_estate_path(real_estate.id) %></td>
+    <td><%= link_to "編集", edit_real_estate_path(real_estate.id) %></td>
+    <td><%= link_to "削除", real_estate_path(real_estate.id), method: :delete%></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '物件を登録する', new_real_estate_path %>
