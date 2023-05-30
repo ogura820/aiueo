@@ -1,0 +1,18 @@
+<h2>最寄駅</h2>
+
+<%= form_with(model: @nearest_station, local: true) do |form| %>
+  <div class="neareststation_line">
+    <%= form.label :路線名 %><BR>
+    <%= form.text_field :line %>
+  </div>
+  <div class="neareststation_station">
+    <%= form.label :駅名 %><BR>
+    <%= form.text_field :station %>
+  </div>
+  <div class="neareststation_minute_to_walk">
+  <%= form.label :徒歩分数 %><BR>
+  <%= form.text_field :minute_to_walk %>
+</div>
+
+  <%= form.submit %>
+<% end %>
