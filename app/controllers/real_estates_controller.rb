@@ -19,7 +19,7 @@ class RealEstatesController < ApplicationController
 
   def edit
     set_real_estate
-    2.times { @real_estate.nearest_stations.build }
+    1.times { @real_estate.nearest_stations.build }
   end
 
   def update
@@ -41,7 +41,7 @@ class RealEstatesController < ApplicationController
 
   def real_estate_params
     params.require(:real_estate).permit(:name, :rent, :address, :age, :note,
-                                        nearest_stations_attributes: [:station, :minute_to_walk, :line])
+                                        nearest_stations_attributes: [:station, :minute_to_walk, :line, :_destroy ])
   end
   
   def set_real_estate
