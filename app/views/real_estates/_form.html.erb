@@ -11,14 +11,32 @@
   <div class="realestate_address">
   <%= form.label :住所 %><BR>
   <%= form.text_field :address %>
-</div>
-<div class="realestate_age">
-<%= form.label :築年数 %><BR>
-<%= form.number_field :age %>年
-</div>
-<div class="realestate_note">
-<%= form.label :備考 %><BR>
-<%= form.text_area :note %>
-</div>
+  </div>
+  <div class="realestate_age">
+  <%= form.label :築年数 %><BR>
+  <%= form.number_field :age %>年
+  </div>
+  <div class="realestate_note">
+  <%= form.label :備考 %><BR>
+  <%= form.text_area :note %>
+  </div>
+<hr>
+<h2>最寄駅</h2>
+  <%= form.fields_for :nearest_station do |nearest_station_form| %>
+    <div class="neareststation_line">
+    <%= form.label :路線名 %><BR>
+    <%= form.text_field :line %>
+    </div>
+    <div class="neareststation_station">
+      <%= form.label :駅名 %><BR>
+      <%= form.text_field :station %>
+    </div>
+    <div class="neareststation_minute_to_walk">
+    <%= form.label :徒歩分数 %><BR>
+    <%= form.text_field :minute_to_walk %>
+    </div>
+<% end %>
+
+
   <%= form.submit %>
 <% end %>
