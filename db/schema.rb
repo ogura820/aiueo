@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_30_053518) do
+ActiveRecord::Schema.define(version: 2023_05_30_055113) do
 
-  create_table "neareststations", force: :cascade do |t|
+  create_table "nearest_stations", force: :cascade do |t|
     t.string "line"
     t.string "station"
     t.text "minute_to_walk"
