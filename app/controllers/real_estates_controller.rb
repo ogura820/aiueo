@@ -5,6 +5,7 @@ class RealEstatesController < ApplicationController
 
   def new
     @real_estate = RealEstate.new
+    2.times { @real_estate.nearest_stations.build }
   end
 
   def create
@@ -18,12 +19,13 @@ class RealEstatesController < ApplicationController
 
   def edit
     set_real_estate
+    2.times { @real_estate.nearest_stations.build }
   end
 
   def update
     set_real_estate
     if @real_estate.update(real_estate_params)
-      redirect_to real_estates_path, notice: "ブログを編集しました！"
+      redirect_to real_estates_path
     else
       render :edit
     end
@@ -38,7 +40,8 @@ class RealEstatesController < ApplicationController
   private
 
   def real_estate_params
-    params.require(:real_estate).permit(:name, :rent, :address, :age, :note)
+    params.require(:real_estate).permit(:name, :rent, :address, :age, :note,
+                                        nearest_stations_attributes: [:station, :minute_to_walk, :line])
   end
   
   def set_real_estate
