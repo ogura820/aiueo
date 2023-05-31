@@ -5,6 +5,7 @@ class RealEstatesController < ApplicationController
 
   def new
     @real_estate = RealEstate.new
+    @index = 0
     2.times { @real_estate.nearest_stations.build }
   end
 
@@ -15,10 +16,12 @@ class RealEstatesController < ApplicationController
 
   def show
     set_real_estate
+    @index = 0
   end
 
   def edit
     set_real_estate
+    @index = 0
     1.times { @real_estate.nearest_stations.build }
   end
 
