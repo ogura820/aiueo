@@ -36,8 +36,12 @@
     <%= form.label :徒歩分数 %><BR>
     <%= nearest_stations_form.text_field :minute_to_walk %>
     </div>
+    <%= form.hidden_field :_destroy, value: true %>
 <% end %>
 
-
-  <%= form.submit %>
+  <% if @real_estate = RealEstate.new %>
+    <%= form.submit "登録する" %>
+  <% else %>
+  <%= form.submit "更新する" %>
+  <% end %>
 <% end %>
