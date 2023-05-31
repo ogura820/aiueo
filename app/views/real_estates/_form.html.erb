@@ -1,0 +1,46 @@
+
+<%= form_with(model: @real_estate, local: true) do |form| %>
+  <div class="realestate_name">
+    <%= form.label :物件名 %><BR>
+    <%= form.text_field :name %>
+  </div>
+  <div class="realestate_rent">
+    <%= form.label :賃料 %><BR>
+    <%= form.text_field :rent %>円
+  </div>
+  <div class="realestate_address">
+  <%= form.label :住所 %><BR>
+  <%= form.text_field :address %>
+  </div>
+  <div class="realestate_age">
+  <%= form.label :築年数 %><BR>
+  <%= form.number_field :age %>年
+  </div>
+  <div class="realestate_note">
+  <%= form.label :備考 %><BR>
+  <%= form.text_area :note %>
+  </div>
+<hr>
+
+  <%= form.fields_for :nearest_stations do |nearest_stations_form| %>
+    <h2>最寄り駅<%= @index += 1 %></h2>
+    <div class="neareststation_line">
+    <%= nearest_stations_form.label :路線名 %><BR>
+    <%= nearest_stations_form.text_field :line %>
+    </div>
+    <div class="neareststation_station">
+      <%= form.label :駅名 %><BR>
+      <%= nearest_stations_form.text_field :station %>
+    </div>
+    <div class="neareststation_minute_to_walk">
+    <%= form.label :徒歩分数 %><BR>
+    <%= nearest_stations_form.text_field :minute_to_walk %>
+    </div>
+<% end %>
+
+  <% if @real_estate = RealEstate.new %>
+    <%= form.submit "登録する" %>
+  <% else %>
+  <%= form.submit "更新する" %>
+  <% end %>
+<% end %>
