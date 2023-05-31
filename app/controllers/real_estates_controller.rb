@@ -44,7 +44,7 @@ class RealEstatesController < ApplicationController
 
   def real_estate_params
     params.require(:real_estate).permit(:name, :rent, :address, :age, :note,
-                                        nearest_stations_attributes: [:station, :minute_to_walk, :line, :id, :_destroy ])
+                                        nearest_stations_attributes: [:station, :minute_to_walk, :line, :id, :_destroy] )
   end
   
   def set_real_estate
