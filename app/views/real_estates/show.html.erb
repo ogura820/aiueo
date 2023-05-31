@@ -4,4 +4,7 @@
 <p>築年数: <%= @real_estate.age %></p>
 <p>備考: <%= @real_estate.note %></p>
 
-<%= link_to '編集', edit_real_estate_path %>|<%= link_to '戻る', real_estates_path %>
+<% @real_estates.nearest_station.each do |real_estate| %>
+  <%= real_estate.line %>
+  <% end %>
+
